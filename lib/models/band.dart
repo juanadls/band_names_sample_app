@@ -9,7 +9,7 @@ class Band {
   String name;
   int votes;
 
-  factory Band.fromJson(Map json) {
+  factory Band.fromJson(Map<String, dynamic> json) {
     return Band(
       id: json["id"],
       name: json["name"],

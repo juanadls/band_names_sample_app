@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
         title: const Text(
           "Band Names",
           style: TextStyle(color: Colors.black87),
@@ -33,12 +34,24 @@ class _HomeScreenState extends State<HomeScreen> {
           return _bandTile(bands[index]);
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        elevation: 1,
+        child: const Icon(Icons.add),
+      ),
     );
   }
 
   ListTile _bandTile(Band band) {
     return ListTile(
+      onTap: () {
+        print(band.name);
+      },
+      title: Text(band.name),
+      trailing:
+          Text(band.votes.toString(), style: const TextStyle(fontSize: 20)),
       leading: CircleAvatar(
+        backgroundColor: Colors.blue[100],
         child: Text(band.name.substring(0, 2)),
       ),
     );
